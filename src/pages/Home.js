@@ -24,6 +24,7 @@ const Home = () => {
         })
             .then(res => res.json()))
 
+    // mail send
     const handleSend = (e) => { 
         e.preventDefault();
 

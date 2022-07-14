@@ -105,7 +105,7 @@ const SaveModal = ({ show, handleClose, setLoading, setShow, refetch }) => {
 
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>Close</Button>
-                    <Button variant="primary" onClick={handleSaveData}> Save </Button>
+                    <Button className='save-btn' onClick={handleSaveData}> Save </Button>
                 </Modal.Footer>
             </Modal>
         </Form>

@@ -7,7 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.send-btn{
+  border: none !important;
+  background: #40739e !important;
+}
+
+.save-btn{
+  border: none !important;
+  background: #16a085 !important;
 }

@@ -16,7 +16,7 @@ const EditProfile = () => {
     // getting specific data by id
     const { data: profile, isLoading } = useQuery(['EditProfile', profileId], () =>
         fetch(`https://repositive-task.herokuapp.com/api/profile/${profileId}`)
-            .then(res => res.json() ))
+            .then(res => res.json()))
 
     // getting data and set in state
     useEffect(() => {
@@ -31,21 +31,22 @@ const EditProfile = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
 
-        if(data.name ==='' && data.email === '' && data.phone === '' && data.hobbies === ''){
-            setError({  name: 'Name filed is required', 
-                        email: 'Email filed is required', 
-                        phone: 'Phone filed is required', 
-                        hobbies: 'Hobbies filed is required' 
-                    })
-        }else if(data.name ===''){
+        if (data.name === '' && data.email === '' && data.phone === '' && data.hobbies === '') {
+            setError({
+                name: 'Name filed is required',
+                email: 'Email filed is required',
+                phone: 'Phone filed is required',
+                hobbies: 'Hobbies filed is required'
+            })
+        } else if (data.name === '') {
             setError({ name: 'Name filed is required' })
-        }else if(data.email === ''){
+        } else if (data.email === '') {
             setError({ email: 'Email filed is required' })
-        }else if(data.phone === ''){
+        } else if (data.phone === '') {
             setError({ phone: 'Phone filed is required' })
-        }else if(data.hobbies === ''){
+        } else if (data.hobbies === '') {
             setError({ hobbies: 'Hobbies filed is required' })
-        }else{
+        } else {
             setLoading(true);
             setError({ name: '', email: '', phone: '', hobbies: '' })
 
@@ -57,7 +58,7 @@ const EditProfile = () => {
                 .then(res => res.json())
                 .then(data => {
                     setLoading(false);
-                    setError({ ...error, name: '', email: '', phone: '', hobbies: ''  });
+                    setError({ ...error, name: '', email: '', phone: '', hobbies: '' });
 
                     if (data.success === true) {
                         toast.success(data.message, { duration: 2000, position: 'top-right', });
@@ -70,19 +71,23 @@ const EditProfile = () => {
     }
 
     // loading
-    if(isLoading || loading){ return <Loading /> }
+    if (isLoading || loading) { return <Loading /> }
 
     return (
         <Form className='my-5'>
             <Container>
-                <Row className='justify-content-center'>
+                <Row className='justify-content-center align-items-center' style={{ minHeight: '80vh' }}>
                     <Col md={8}>
                         <Card className='py-4 px-3'>
 
+                            <div className="text-center mb-3">
+                                <h4>Profile Management</h4>
+                            </div>
+
                             <Card className='py-2 px-1'>
                                 <div className='d-flex justify-content-end'>
-                                    <Button onClick={() => navigate('/')} className='me-2'>Home</Button>
-                                   <Button onClick={handleUpdate}>Update</Button>
+                                    <Button className='send-btn me-2' onClick={() => navigate('/')}>Home</Button>
+                                    <Button className='save-btn' onClick={handleUpdate}>Update</Button>
                                 </div>
                             </Card>
 
